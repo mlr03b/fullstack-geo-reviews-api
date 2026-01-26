@@ -1,0 +1,373 @@
+:root {
+    /* --- PALETA MODERNA SOLAR (Naranja -> Amarillo Fosforito) --- */
+    --electric-gradient: linear-gradient(135deg, #ff4e00 0%, #ffaa00 50%, #ccff00 100%);
+    --electric-gradient-hover: linear-gradient(135deg, #cc3e00 0%, #e69900 50%, #b3e600 100%);
+    
+    /* Colores de acento */
+    --neon-orange: #ff4e00;
+    --neon-gold: #ffaa00;
+    --neon-yellow: #ccff00;
+
+    /* --- Variables Modo Claro --- */
+    --bg-color: #fffdfa;
+    --text-color: #1a1a1a;
+    --text-muted: #525252;
+    --card-bg: #ffffff;
+    --border-color: #e5e5e5;
+    --input-bg: #f8f8f8;
+    --header-text: #ffffff; 
+    
+    --shadow-card: 0 10px 25px -5px rgba(255, 78, 0, 0.15), 0 8px 10px -6px rgba(255, 170, 0, 0.1);
+    --map-filter: none;
+}
+
+[data-theme="dark"] {
+    /* --- Variables Modo Oscuro --- */
+    --bg-color: #050505;
+    --text-color: #f0f0f0;
+    --text-muted: #a3a3a3;
+    --card-bg: #121212;
+    --border-color: #2a2a2a;
+    --input-bg: #1e1e1e;
+    --header-text: #ffffff;
+    
+    --shadow-card: 0 0 20px rgba(255, 78, 0, 0.15);
+    --map-filter: brightness(0.7) contrast(1.2) grayscale(0.2);
+}
+
+* {
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- HEADER --- */
+header {
+    background: var(--electric-gradient);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--header-text);
+    box-shadow: 0 5px 20px rgba(255, 78, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.2) 50%, transparent 60%);
+    pointer-events: none;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+header .subtitle {
+    margin: 0;
+    font-size: 0.8rem;
+    opacity: 0.9;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: block;
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    z-index: 2; 
+}
+
+#theme-toggle {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #fff;
+    padding: 0.4rem 0.6rem;
+    font-size: 1.1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    line-height: 1;
+}
+
+#theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(15deg);
+}
+
+/* --- LAYOUT GENERAL MODIFICADO PARA FULL WIDTH --- */
+main {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 1.5rem;
+    flex: 1;
+}
+
+main:not(.login-container) {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* --- ESTILOS LOGIN --- */
+.login-container {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.center-box {
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    padding: 3rem 2rem;
+    margin: 0 auto;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#login-btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+/* --- CARDS --- */
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-card);
+    position: relative;
+    overflow: hidden; 
+    width: 100%;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--electric-gradient);
+}
+
+.card h2 {
+    margin-top: 0;
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 1.2rem;
+    color: var(--text-color);
+}
+.card h4 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--neon-gold);
+}
+
+/* --- FORMULARIOS --- */
+.form-row {
+    margin-bottom: 1.2rem;
+}
+
+label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="file"] {
+    width: 100%;
+    padding: 0.7rem 0.9rem;
+    border-radius: 8px;
+    border: 2px solid var(--border-color);
+    background: var(--input-bg);
+    color: var(--text-color);
+    font-size: 0.95rem;
+    outline: none;
+    font-family: inherit;
+}
+
+input:focus {
+    border-color: var(--neon-orange); 
+    box-shadow: 0 0 0 3px rgba(255, 78, 0, 0.1);
+}
+
+/* --- ESTILOS PARA PREVISUALIZACIÓN DE IMÁGENES (FORMULARIO) --- */
+#image-preview {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.preview-item {
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.preview-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid var(--border-color);
+}
+
+.preview-remove-btn {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--neon-orange);
+    color: white;
+    border: 2px solid white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transition: transform 0.2s, background-color 0.2s;
+}
+.preview-remove-btn:hover {
+     background-color: #d63f00;
+     transform: scale(1.1);
+}
+
+/* --- NUEVOS ESTILOS PARA LA VISTA DETALLE DE IMÁGENES (HORIZONTAL) --- */
+.detail-images-row {
+    display: flex; /* Fuerza la disposición en fila */
+    flex-wrap: wrap; 
+    gap: 15px;
+    margin-top: 10px;
+    padding-bottom: 10px; /* Separación de la tarjeta */
+}
+
+.detail-image-thumb {
+    width: 120px; /* Tamaño de miniatura en la vista detalle */
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid var(--neon-gold); /* Borde de color de acento */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* --- BOTONES --- */
+button {
+    border: none;
+    border-radius: 8px;
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    background: var(--electric-gradient);
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 15px rgba(255, 78, 0, 0.25);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    background: var(--electric-gradient-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 170, 0, 0.35);
+}
+
+button.secondary {
+    background: transparent;
+    border: 2px solid var(--border-color);
+    color: var(--text-muted);
+    text-shadow: none;
+    box-shadow: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+}
+
+button.secondary:hover {
+    border-color: var(--neon-orange);
+    color: var(--neon-orange);
+    transform: translateY(-1px);
+}
+
+/* --- MAPA --- */
+#map {
+    width: 100%;
+    height: 60vh; 
+    min-height: 400px;
+    border-radius: 12px;
+    border: 2px solid var(--border-color);
+    margin-top: 1rem;
+}
+.search-bar {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* --- LISTAS DE RESEÑAS --- */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    gap: 1.5rem;
+}
+
+.review-item-card {
+    background: var(--input-bg);
+}
+
+/* --- UTILIDADES --- */
+.info {
+    font-weight: 600;
+    margin-top: 0.8rem;
+    font-size: 0.9rem;
+    min-height: 1.5em; 
+}
+.small {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+.leaflet-layer, .leaflet-control {
+    filter: var(--map-filter);
+}
