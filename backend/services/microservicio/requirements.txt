@@ -1,0 +1,11 @@
+pymongo[srv]
+pydantic[email]
+uvicorn
+fastapi
+python-dotenv
+httpx
+motor
+cloudinary
+python-multipart
+google-cloud-firestore
+pyjwt
