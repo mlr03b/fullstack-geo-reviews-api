@@ -2,7 +2,7 @@
 
 Plataforma Full Stack robusta para la gestión de reseñas de establecimientos, integrando geolocalización en tiempo real, microservicios y almacenamiento en la nube.
 
-🚀 Características Principales
+## 🚀 Características Principales
 
 * **Geocoding Dinámico**: El sistema utiliza la API de Nominatim (OpenStreetMap) para convertir automáticamente direcciones postales en coordenadas GPS (latitud/longitud).
 * **Visualización en Mapas**: Integración con Leaflet.js para mostrar marcadores interactivos basados en los datos almacenados en MongoDB.
