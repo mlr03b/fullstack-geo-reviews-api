@@ -9,13 +9,15 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/fireba
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyC-jWTbtK2haxktbAFoIR5cBJ_LrSEvc7c",
-    authDomain: "parcialingweb-ccbbe.firebaseapp.com",
-    projectId: "parcialingweb-ccbbe",
-    storageBucket: "parcialingweb-ccbbe.firebasestorage.app",
-    messagingSenderId: "778489771966",
-    appId: "1:778489771966:web:93911bf87cddf6a8272bef"
+  apiKey: "AIzaSyCf9T3fPEWBbJMzIdUnPiF97h3FRy-cFxQ",
+  authDomain: "proyecto-geolocalizacion-f0576.firebaseapp.com",
+  projectId: "proyecto-geolocalizacion-f0576",
+  storageBucket: "proyecto-geolocalizacion-f0576.firebasestorage.app",
+  messagingSenderId: "1046953498155",
+  appId: "1:1046953498155:web:cb261afd62a49c48eb3c6e",
+  measurementId: "G-B3WEJBG4Y8"
 };
+
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
